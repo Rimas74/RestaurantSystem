@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 //using System.Net;
 //using System.Net.Mail;
 
@@ -44,14 +45,31 @@ namespace RestaurantSystem.Utilities
                 }
 
             emailMessage.Body = builder.ToMessageBody();
-            using (var client = new SmtpClient())
+            try
                 {
-                client.Connect(_smtpServer, _smtpPort, SecureSocketOptions.StartTls);
-                client.Authenticate(_smtpUserName, _smtpPassword);
-                client.Send(emailMessage);
-                client.Disconnect(true);
+                using (var client = new SmtpClient())
+                    {
+                    client.Connect(_smtpServer, _smtpPort, SecureSocketOptions.StartTls);
+                    client.Authenticate(_smtpUserName, _smtpPassword);
+                    client.Send(emailMessage);
+                    client.Disconnect(true);
+                    }
 
-                };
+                ;
+                Console.WriteLine("Email sent successfully.");
+                }
+            catch (SmtpProtocolException ex)
+                {
+                Console.WriteLine($"Protocol error while sending email: {ex.Message}");
+                }
+            catch (SocketException ex)
+                {
+                Console.WriteLine($"Network error {ex.Message}");
+                }
+            catch (Exception ex)
+                {
+                Console.WriteLine($"Unexpected error: {ex.Message}");
+                }
             }
         }
 
