@@ -9,7 +9,7 @@ using MimeKit;
 
 using System.Text;
 using System.Threading.Tasks;
-
+using MailKit.Security;
 using RestaurantSystem.Utilities.Interfaces;
 
 namespace RestaurantSystem.Utilities
@@ -46,7 +46,7 @@ namespace RestaurantSystem.Utilities
             emailMessage.Body = builder.ToMessageBody();
             using (var client = new SmtpClient())
                 {
-                client.Connect(_smtpServer, _smtpPort, true);
+                client.Connect(_smtpServer, _smtpPort, SecureSocketOptions.StartTls);
                 client.Authenticate(_smtpUserName, _smtpPassword);
                 client.Send(emailMessage);
                 client.Disconnect(true);
