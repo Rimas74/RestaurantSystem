@@ -1,0 +1,52 @@
+﻿[
+  {
+    "Name": "Hamburger",
+    "Price": 5.99,
+    "Category": "Food"
+  },
+  {
+    "Name": "Pizza",
+    "Price": 10.99,
+    "Category": "Food"
+  },
+  {
+    "Name": "French Fries",
+    "Price": 3.49,
+    "Category": "Food"
+  },
+  {
+    "Name": "Spaghetti Carbonara",
+    "Price": 8.99,
+    "Category": "Food"
+  },
+  {
+    "Name": "Salad",
+    "Price": 4.99,
+    "Category": "Food"
+  },
+  {
+    "Name": "Chicken Tenders",
+    "Price": 6.49,
+    "Category": "Food"
+  },
+  {
+    "Name": "Club Sandwich",
+    "Price": 7.99,
+    "Category": "Food"
+  },
+  {
+    "Name": "Pancakes",
+    "Price": 5.99,
+    "Category": "Food"
+  },
+  {
+    "Name": "Tacos",
+    "Price": 6.99,
+    "Category": "Food"
+  },
+  {
+    "Name": "Sushi",
+    "Price": 12.99,
+    "Category": "Food"
+  }
+]

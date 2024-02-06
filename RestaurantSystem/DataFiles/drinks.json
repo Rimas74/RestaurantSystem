@@ -1,0 +1,52 @@
+﻿[
+  {
+    "Name": "Mojito",
+    "Price": 7.99,
+    "Category": "Drink"
+  },
+  {
+    "Name": "Caipirinha",
+    "Price": 8.49,
+    "Category": "Drink"
+  },
+  {
+    "Name": "Margherita",
+    "Price": 9.99,
+    "Category": "Drink"
+  },
+  {
+    "Name": "Pina Colada",
+    "Price": 7.99,
+    "Category": "Drink"
+  },
+  {
+    "Name": "Sangria",
+    "Price": 8.99,
+    "Category": "Drink"
+  },
+  {
+    "Name": "Cosmopolitan",
+    "Price": 9.49,
+    "Category": "Drink"
+  },
+  {
+    "Name": "Lemonade",
+    "Price": 3.99,
+    "Category": "Drink"
+  },
+  {
+    "Name": "Iced Tea",
+    "Price": 2.99,
+    "Category": "Drink"
+  },
+  {
+    "Name": "Soda",
+    "Price": 1.99,
+    "Category": "Drink"
+  },
+  {
+    "Name": "Water",
+    "Price": 0.99,
+    "Category": "Drink"
+  }
+]

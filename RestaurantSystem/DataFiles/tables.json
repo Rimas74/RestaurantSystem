@@ -1,0 +1,27 @@
+﻿[
+  {
+    "TableNumber": 1,
+    "NumberOfSeats": 5,
+    "IsOccupied": false
+  },
+  {
+    "TableNumber": 2,
+    "NumberOfSeats": 4,
+    "IsOccupied": false
+  },
+  {
+    "TableNumber": 3,
+    "NumberOfSeats": 3,
+    "IsOccupied": false
+  },
+  {
+    "TableNumber": 4,
+    "NumberOfSeats": 2,
+    "IsOccupied": false
+  },
+  {
+    "TableNumber": 5,
+    "NumberOfSeats": 1,
+    "IsOccupied": false
+  }
+]
