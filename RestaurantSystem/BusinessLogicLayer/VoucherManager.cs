@@ -54,5 +54,10 @@ namespace RestaurantSystem.BusinessLogicLayer
             var voucherContent = voucher.PrintVoucher();
             _printService.PrintToConsole(voucherContent);
             }
+
+        public void GetSenderEmail()
+            {
+            string senderEmail = _emailService.SenderEmail;
+            }
         }
     }

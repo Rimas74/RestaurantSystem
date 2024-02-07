@@ -325,7 +325,7 @@ namespace RestaurantSystem.PresentationLayer
                         break;
 
                     case "3":
-                        string restaurantEmail = "ignauskasignas15@gmail.com";
+                        string restaurantEmail = _emailService.SenderEmail;
                         if (_emailService != null)
                             {
                             _voucherManager.SendVoucherByEmail(restaurantVoucher, restaurantEmail);

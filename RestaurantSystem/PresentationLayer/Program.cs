@@ -1,6 +1,5 @@
 ﻿using Moq;
 using Microsoft.Extensions.Configuration;
-
 using RestaurantSystem.BusinessLogicLayer;
 using RestaurantSystem.BusinessLogicLayer.Interfaces;
 using RestaurantSystem.DataAccessLayer;

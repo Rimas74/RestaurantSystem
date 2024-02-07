@@ -21,15 +21,15 @@ namespace RestaurantSystem.Utilities
         private readonly string _smtpUserName;
         private readonly string _smtpPassword;
 
+
         public EmailService(string smtpServer, int smtpPort, string smtpUserName, string smtpPassword)
             {
             _smtpServer = smtpServer;
             _smtpPort = smtpPort;
             _smtpUserName = smtpUserName;
             _smtpPassword = smtpPassword;
-
             }
-
+        public string SenderEmail => _smtpUserName;
         public void SendEmail(string toAddress, string subject, string body, string attachmentPath = null)
             {
             var emailMessage = new MimeMessage();
