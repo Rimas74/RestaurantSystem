@@ -36,7 +36,7 @@ namespace RestaurantSystem.BusinessLogicLayer
 
             _voucherDataAccess.SaveRestaurantVoucher(restaurantVoucher);
             Console.WriteLine("Printing Restaurant Voucher to console:\n");
-            _printService.PrintToConsole(restaurantVoucher.PrintVoucher());
+            PrintVoucher(restaurantVoucher);
 
             return restaurantVoucher;
             }
@@ -45,6 +45,12 @@ namespace RestaurantSystem.BusinessLogicLayer
             {
             string voucherContent = voucher.PrintVoucher();
             _emailService.SendEmail(emailAddress, "Your Voucher", voucherContent);
+            }
+
+        public void PrintVoucher(IVoucher voucher)
+            {
+            var voucherContent = voucher.PrintVoucher();
+            _printService.PrintToConsole(voucherContent);
             }
         }
     }

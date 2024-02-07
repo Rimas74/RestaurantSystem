@@ -37,8 +37,6 @@ namespace RestaurantSystem.PresentationLayer
                 Console.WriteLine("Waiter's Interface Main Menu:");
                 Console.WriteLine("1. Manage Tables.");
                 Console.WriteLine("2. Take Order.");
-                //Console.WriteLine("3. Print Voucher.");
-                //Console.WriteLine("4. Send Voucher by Email.");
                 Console.WriteLine("3. Exit.");
 
                 var input = Console.ReadLine();
@@ -50,13 +48,6 @@ namespace RestaurantSystem.PresentationLayer
                     case "2":
                         TakeOrder();
                         break;
-
-                    //case "3":
-                    //    PrintVoucher();
-                    //    break;
-                    //case "4":
-                    //    SendVoucherByEmail();
-                    //    break;
 
                     case "3":
                         exit = true;
@@ -219,7 +210,7 @@ namespace RestaurantSystem.PresentationLayer
             var drinkItems = new DrinkDataAccess().GetAllDrinkItems();
             var orderItems = new List<OrderItem>();
 
-            Console.WriteLine("Taking food order .../n");
+            Console.WriteLine("Taking food order ...\n");
             TakeMenuOrder("Food", foodItems, orderItems);
 
             Console.WriteLine("Taking drinks order .../n");
@@ -311,7 +302,7 @@ namespace RestaurantSystem.PresentationLayer
                     case "1":
                         if (_printService != null)
                             {
-                            _printService.PrintToConsole(customerVoucher.PrintVoucher());
+                            _voucherManager.PrintVoucher(customerVoucher);
                             }
                         else
                             {
@@ -325,8 +316,7 @@ namespace RestaurantSystem.PresentationLayer
 
                         if (!string.IsNullOrEmpty(email) && _emailService != null)
                             {
-                            _emailService.SendEmail(email, "The voucher from restaurant",
-                                customerVoucher.PrintVoucher());
+                            _voucherManager.SendVoucherByEmail(customerVoucher, email);
                             }
                         else
                             {
@@ -339,8 +329,7 @@ namespace RestaurantSystem.PresentationLayer
                         string restaurantEmail = "gintilas.rimantas@gmail.com";
                         if (_emailService != null)
                             {
-                            _emailService.SendEmail(restaurantEmail, "Restaurant voucher.",
-                                restaurantVoucher.PrintVoucher());
+                            _voucherManager.SendVoucherByEmail(restaurantVoucher, restaurantEmail);
                             }
                         else
                             {
