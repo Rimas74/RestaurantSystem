@@ -41,15 +41,10 @@ namespace RestaurantSystem.BusinessLogicLayer
             return restaurantVoucher;
             }
 
-
         public void SendVoucherByEmail(IVoucher voucher, string emailAddress)
             {
             string voucherContent = voucher.PrintVoucher();
             _emailService.SendEmail(emailAddress, "Your Voucher", voucherContent);
             }
-
-
-        // What else reg vouchers to add here?
         }
-
     }

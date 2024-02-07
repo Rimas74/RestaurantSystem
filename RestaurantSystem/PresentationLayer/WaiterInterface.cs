@@ -116,7 +116,6 @@ namespace RestaurantSystem.PresentationLayer
 
         private void VacateTable()
             {
-            //Console.Clear();
             Console.WriteLine("Enter the table number you want to vacate:");
             var input = Console.ReadLine();
             if (int.TryParse(input, out var tableNumber))
@@ -141,18 +140,15 @@ namespace RestaurantSystem.PresentationLayer
                     {
                     Console.WriteLine($"Table {tableNumber} does not exists.");
                     }
-
                 }
             else
                 {
                 Console.WriteLine("Invalid input. Please enter a valid table number.");
                 }
-
             }
 
         private void OccupyTable()
             {
-            //Console.Clear();
             Console.WriteLine("Enter the table number to occupy:");
             var input = Console.ReadLine();
 
@@ -178,7 +174,6 @@ namespace RestaurantSystem.PresentationLayer
                     {
                     Console.WriteLine($"Table {tableNumber} does not exist.");
                     }
-
                 }
             else
                 {
@@ -224,20 +219,16 @@ namespace RestaurantSystem.PresentationLayer
             var drinkItems = new DrinkDataAccess().GetAllDrinkItems();
             var orderItems = new List<OrderItem>();
 
-            Console.WriteLine("Taking food order ...");
+            Console.WriteLine("Taking food order .../n");
             TakeMenuOrder("Food", foodItems, orderItems);
 
-            Console.WriteLine("Taking drinks order ...");
+            Console.WriteLine("Taking drinks order .../n");
             TakeMenuOrder("Drinks", drinkItems, orderItems);
 
             var order = _orderManager.CreateOrder(tableNumber, orderItems);
+
             Console.WriteLine("Order taken successfully.");
-
-
             Console.WriteLine("Generating vouchers.....");
-
-            Console.WriteLine("Printing restaurant voucher to console");
-
 
             var restaurantVoucher = _voucherManager.CreateRestaurantVoucher(order, voucherId);
             var customerVoucher = _voucherManager.CreateCustomerVoucher(order, voucherId);

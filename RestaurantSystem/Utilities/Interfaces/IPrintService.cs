@@ -9,6 +9,6 @@ namespace RestaurantSystem.Utilities.Interfaces
     public interface IPrintService
         {
         void PrintToConsole(string content);
-        //void PrintToFile(string content, string filePath);
+
         }
     }

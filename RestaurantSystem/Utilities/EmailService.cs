@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
-//using System.Net;
-//using System.Net.Mail;
+
 
 using MailKit.Net.Smtp;
 using MimeKit;
@@ -17,8 +16,8 @@ namespace RestaurantSystem.Utilities
     {
     public class EmailService : IEmailService
         {
-        private readonly string _smtpServer;    //= "smtp-mail.outlook.com"
-        private readonly int _smtpPort;         // = 587
+        private readonly string _smtpServer;
+        private readonly int _smtpPort;
         private readonly string _smtpUserName;
         private readonly string _smtpPassword;
 

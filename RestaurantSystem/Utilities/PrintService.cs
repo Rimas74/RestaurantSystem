@@ -15,15 +15,6 @@ namespace RestaurantSystem.Utilities
             Console.WriteLine(content);
             }
 
-        //public void PrintToFile(string content, string filePath)
-        //    {
-        //    var directory=Path.GetDirectoryName(filePath);
-        //    if (!Directory.Exists(directory))
-        //    {
-        //        Directory.CreateDirectory(directory);
-        //    }
-        //    File.WriteAllText(filePath, content);
-        //    }
         }
 
     }
