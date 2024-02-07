@@ -278,7 +278,6 @@ namespace RestaurantSystem.PresentationLayer
                     Console.WriteLine("Invalid quantity. Try again.");
                     }
                 }
-                ;
             }
 
         private void HandleVouchers(IVoucher restaurantVoucher, IVoucher customerVoucher)
@@ -326,7 +325,7 @@ namespace RestaurantSystem.PresentationLayer
                         break;
 
                     case "3":
-                        string restaurantEmail = "gintilas.rimantas@gmail.com";
+                        string restaurantEmail = "ignauskasignas15@gmail.com";
                         if (_emailService != null)
                             {
                             _voucherManager.SendVoucherByEmail(restaurantVoucher, restaurantEmail);
