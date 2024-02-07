@@ -187,7 +187,7 @@ namespace RestaurantSystem.PresentationLayer
             {
             ViewTables();
 
-            var voucherId = VoucherIdTracker.GetNextVoucherId();
+
             Console.WriteLine("Enter the number of an occupied table for the order:");
 
             var input = Console.ReadLine();
@@ -213,7 +213,7 @@ namespace RestaurantSystem.PresentationLayer
             Console.WriteLine("Taking food order ...\n");
             TakeMenuOrder("Food", foodItems, orderItems);
 
-            Console.WriteLine("Taking drinks order .../n");
+            Console.WriteLine("Taking drinks order ...\n");
             TakeMenuOrder("Drinks", drinkItems, orderItems);
 
             var order = _orderManager.CreateOrder(tableNumber, orderItems);
@@ -221,8 +221,8 @@ namespace RestaurantSystem.PresentationLayer
             Console.WriteLine("Order taken successfully.");
             Console.WriteLine("Generating vouchers.....");
 
-            var restaurantVoucher = _voucherManager.CreateRestaurantVoucher(order, voucherId);
-            var customerVoucher = _voucherManager.CreateCustomerVoucher(order, voucherId);
+            var restaurantVoucher = _voucherManager.CreateRestaurantVoucher(order);
+            var customerVoucher = _voucherManager.CreateCustomerVoucher(order);
 
             if (restaurantVoucher == null || customerVoucher == null)
                 {

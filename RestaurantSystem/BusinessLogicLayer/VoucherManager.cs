@@ -24,14 +24,16 @@ namespace RestaurantSystem.BusinessLogicLayer
             _emailService = emailService;
             }
 
-        public IVoucher CreateCustomerVoucher(Order order, int voucherId)
+        public IVoucher CreateCustomerVoucher(Order order)
             {
+            int voucherId = VoucherIdTracker.GetNextVoucherId();
             var customerVoucher = new CustomerVoucher(order, voucherId);
             return customerVoucher;
             }
 
-        public IVoucher CreateRestaurantVoucher(Order order, int voucherId)
+        public IVoucher CreateRestaurantVoucher(Order order)
             {
+            int voucherId = VoucherIdTracker.GetNextVoucherId();
             var restaurantVoucher = new RestaurantVoucher(order, voucherId);
 
             _voucherDataAccess.SaveRestaurantVoucher(restaurantVoucher);

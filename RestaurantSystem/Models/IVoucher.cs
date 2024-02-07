@@ -8,7 +8,8 @@ namespace RestaurantSystem.Models
     {
     public interface IVoucher
         {
-        int OrderId { get; }
+
+        int VoucherId { get; }
         int TableNumber { get; }
         List<OrderItem> Items { get; }
         decimal TotalAmount { get; }

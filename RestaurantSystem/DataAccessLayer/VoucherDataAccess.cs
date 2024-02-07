@@ -28,7 +28,7 @@ namespace RestaurantSystem.DataAccessLayer
 
             try
                 {
-                string fullFilePath = $"{FilePath}Voucher_{voucher.OrderId}.json";
+                string fullFilePath = $"{FilePath}Voucher_{voucher.VoucherId}.json";
                 Console.WriteLine($"Saving voucher to: {fullFilePath}");
                 _fileDataAccess.WriteAll(fullFilePath, new List<RestaurantVoucher> { voucher });
                 }

@@ -8,25 +8,26 @@ namespace RestaurantSystem.Models
     {
     internal class CustomerVoucher : IVoucher
         {
-        public int OrderId { get; private set; }
+        public int VoucherId { get; private set; }
         public int TableNumber { get; private set; }
         public List<OrderItem> Items { get; private set; }
         public decimal TotalAmount { get; private set; }
         public DateTime OrderDate { get; private set; }
 
-        public CustomerVoucher(Order order, int orderId)
+        public CustomerVoucher(Order order, int voucherId)
             {
-            OrderId = orderId;
+            VoucherId = voucherId;
             TableNumber = order.TableNumber;
             Items = order.Items;
             TotalAmount = order.TotalAmount;
             OrderDate = order.OrderDate;
+            VoucherId = voucherId;
             }
 
         public string PrintVoucher()
             {
             var builder = new StringBuilder("Customer Voucher");
-            builder.AppendLine($"Order ID: {OrderId}");
+            builder.AppendLine($"Voucher ID: {VoucherId}");
             builder.AppendLine($"Table Number: {TableNumber}");
             builder.AppendLine($"Ordered Items:");
 
