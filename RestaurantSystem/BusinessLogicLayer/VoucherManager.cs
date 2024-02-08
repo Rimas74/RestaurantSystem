@@ -62,9 +62,9 @@ namespace RestaurantSystem.BusinessLogicLayer
             _printService.PrintToConsole(voucherContent);
             }
 
-        public void GetSenderEmail()
+        public string GetSenderEmail()
             {
-            string senderEmail = _emailService.SenderEmail;
+            return _emailService.SenderEmail;
             }
         }
     }
