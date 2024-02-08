@@ -327,7 +327,7 @@ namespace RestaurantSystem.PresentationLayer
                         break;
 
                     case "3":
-                        string restaurantEmail = _emailService.SenderEmail;
+                        string restaurantEmail = _voucherManager.GetSenderEmail(); //_emailService.SenderEmail;
                         if (_emailService != null)
                             {
                             _voucherManager.SendVoucherByEmail(restaurantVoucher, restaurantEmail);
