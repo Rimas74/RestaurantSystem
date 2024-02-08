@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Primitives;
 
 namespace RestaurantSystem.Models
     {
@@ -25,19 +27,24 @@ namespace RestaurantSystem.Models
             }
         public string PrintVoucher()
             {
-            var builder = new StringBuilder("Restaurant Voucher");
+            var lithuanianCulture = new CultureInfo("lt-LT");
+            var builder = new StringBuilder("Restaurant Voucher: ");
+            builder.AppendLine();
             builder.AppendLine($"Voucher ID: {VoucherId}");
             builder.AppendLine($"Table Number: {TableNumber}");
             builder.AppendLine($"Ordered Items:");
 
             foreach (var item in Items)
                 {
-                builder.AppendLine($"{item.Name} X {item.Quantity} X {item.Price:C} each");
+                string formattedPrice = item.Price.ToString("F2", lithuanianCulture) + " €";
+                builder.AppendLine($"{item.Name} X {item.Quantity} X {formattedPrice} each");
                 }
-            builder.AppendLine($"Total Amount: {TotalAmount:C}");
+            string formattedTotal = TotalAmount.ToString("F2", lithuanianCulture) + " €";
+            builder.AppendLine($"Total Amount: {formattedTotal}");
             builder.AppendLine($"Order Date: {OrderDate}");
 
             return builder.ToString();
             }
+
         }
     }
