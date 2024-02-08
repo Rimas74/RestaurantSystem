@@ -24,9 +24,9 @@ namespace RestaurantSystem.BusinessLogicLayer
             _emailService = emailService;
             }
 
-        public IVoucher CreateCustomerVoucher(Order order)
+
+        public IVoucher CreateCustomerVoucher(Order order, int voucherId)
             {
-            int voucherId = VoucherIdTracker.GetNextVoucherId();
             var customerVoucher = new CustomerVoucher(order, voucherId);
             return customerVoucher;
             }
@@ -40,13 +40,20 @@ namespace RestaurantSystem.BusinessLogicLayer
             Console.WriteLine("Printing Restaurant Voucher to console:\n");
             PrintVoucher(restaurantVoucher);
 
+            CreateCustomerVoucher(order, voucherId);
+
             return restaurantVoucher;
             }
 
         public void SendVoucherByEmail(IVoucher voucher, string emailAddress)
             {
             string voucherContent = voucher.PrintVoucher();
-            _emailService.SendEmail(emailAddress, "Your Voucher", voucherContent);
+            _emailService.SendEmail(emailAddress, "Your Voucher", FormatForHtml(voucherContent));
+            }
+
+        private string FormatForHtml(string content)
+            {
+            return content.Replace(Environment.NewLine, "<br>");
             }
 
         public void PrintVoucher(IVoucher voucher)
