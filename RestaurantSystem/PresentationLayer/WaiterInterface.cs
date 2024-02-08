@@ -30,6 +30,7 @@ namespace RestaurantSystem.PresentationLayer
             }
         public void ShowMainMenu()
             {
+            Console.OutputEncoding = Encoding.UTF8;
             bool exit = false;
             while (!exit)
                 {
@@ -222,7 +223,8 @@ namespace RestaurantSystem.PresentationLayer
             Console.WriteLine("Generating vouchers.....");
 
             var restaurantVoucher = _voucherManager.CreateRestaurantVoucher(order);
-            var customerVoucher = _voucherManager.CreateCustomerVoucher(order);
+            int voucherId = restaurantVoucher.VoucherId;
+            var customerVoucher = _voucherManager.CreateCustomerVoucher(order, voucherId);
 
             if (restaurantVoucher == null || customerVoucher == null)
                 {
